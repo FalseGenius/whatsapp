@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     var pusher = new Pusher(asdasdas, {
-      cluster: 'ap1'
+      cluster: wqeqe
     });
 
     var channel = pusher.subscribe('messages');
