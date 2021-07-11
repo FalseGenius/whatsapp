@@ -9,11 +9,11 @@ import cors from 'cors';
 const app = express();
 
 const pusher = new Pusher({
-  appId: x1,
-  key: x2,
-  secret: "x3",
-  cluster: x4,
-  useTLS: x5
+  appId: a,
+  key: b,
+  secret: c,
+  cluster: d,
+  useTLS: e
 });
 
 const port = process.env.PORT || 9000;
@@ -47,7 +47,9 @@ db.once('open', ()=> {
       const messageDetails = change.fullDocument;
       pusher.trigger('messages', 'inserted', {
         name: messageDetails.name,
-        message: messageDetails.message
+        message: messageDetails.message,
+        timestamp: messageDetails.timestamp,
+        received: messageDetails.received,
       })
     } else {
       console.log('Error triggering Pusher');
